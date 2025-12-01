@@ -5,6 +5,9 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdint.h>
+#if defined(_WIN32)
+#include <windows.h>
+#endif
 
 static uint64_t monotonic_ns(void){
 #if defined(_WIN32)

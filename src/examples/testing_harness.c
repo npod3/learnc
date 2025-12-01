@@ -1,1 +1,15 @@
-// Purpose: Minimal testing harness concept (stub).\n// Example Invocation: ID 114\n\n#include <stdio.h>\n#include <string.h>\n\n#define TEST(name) static void name(int *fails)\n\nTEST(test_add){ int a=2+3; if(a!=5){ (*fails)++; printf("fail: test_add\n"); } }\n\nint example_testing_harness(void){\n    int fails=0; test_add(&fails);\n    printf("[Testing Harness] fails=%d\n", fails);\n    return 0;\n}\n
+// Purpose: Minimal testing harness concept (stub).
+// Example Invocation: ID 114
+
+#include <stdio.h>
+#include <string.h>
+
+#define TEST(name) static void name(int *fails)
+
+TEST(test_add){ int a=2+3; if(a!=5){ (*fails)++; printf("fail: test_add\n"); } }
+
+int example_testing_harness(void){
+	int fails=0; test_add(&fails);
+	printf("[Testing Harness] fails=%d\n", fails);
+	return 0;
+}

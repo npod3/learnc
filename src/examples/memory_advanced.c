@@ -8,6 +8,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdint.h>
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 201112L
+#include <stdalign.h>
+#endif
 #include "advanced/allocator.h"
 
 // Ownership table for cleanup demonstration.
@@ -41,9 +44,16 @@ void pool_destroy(Pool *p){ free(p->block); p->block=NULL; p->capacity=0; p->fre
 typedef struct Vec3 { float x,y,z; } Vec3;
 typedef struct Node { int value; struct Node *next; } Node;
 
+// Fallback alignof helper
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 201112L
+#define LEARNC_ALIGNOF(T) _Alignof(T)
+#else
+#define LEARNC_ALIGNOF(T) (sizeof(void*))
+#endif
+
 static void demo_arena(Arena *arena){
     printf("Arena: allocating 100 Vec3 structs...\n");
-    Vec3 *v = (Vec3*)arena_alloc(arena, sizeof(Vec3)*100, alignof(Vec3));
+    Vec3 *v = (Vec3*)arena_alloc(arena, sizeof(Vec3)*100, LEARNC_ALIGNOF(Vec3));
     if(!v){ printf("Arena alloc failed.\n"); return; }
     for(int i=0;i<100;i++){ v[i].x=i; v[i].y=i*2.0f; v[i].z=i*3.0f; }
     printf("Arena offset after alloc: %zu / %zu\n", arena->offset, arena->capacity);
@@ -84,7 +94,7 @@ int example_memory_advanced(void){
 
     printf("Reset arena (bulk free) then allocate 10 Vec3 again...\n");
     arena_reset(&arena);
-    Vec3 *again = (Vec3*)arena_alloc(&arena, sizeof(Vec3)*10, alignof(Vec3));
+    Vec3 *again = (Vec3*)arena_alloc(&arena, sizeof(Vec3)*10, LEARNC_ALIGNOF(Vec3));
     if(again) printf("Success. Arena offset=%zu\n", arena.offset);
 
     // Cleanup order demonstration.
