@@ -1,0 +1,32 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build (gcc)",
+            "type": "shell",
+            "command": "gcc",
+            "args": ["-std=c17","-Wall","-Wextra","-Wpedantic","-O2","-Iinclude","src/*.c","src/examples/*.c","-o","bin/learnc.exe","-lws2_32"],
+            "group": "build",
+            "problemMatcher": ["$gcc"],
+            "detail": "Build project with gcc"
+        },
+        {
+            "label": "Build (MSVC)",
+            "type": "shell",
+            "command": "cl",
+            "args": ["/std:c17","/W4","/EHsc","/Fe:bin/learnc.exe","/I","include","src/*.c","src/examples/*.c","ws2_32.lib"],
+            "group": "build",
+            "problemMatcher": ["$msCompile"],
+            "detail": "Build project with MSVC"
+        },
+        {
+            "label": "Build (Clang)",
+            "type": "shell",
+            "command": "clang",
+            "args": ["-std=c17","-Wall","-Wextra","-Wpedantic","-O2","-Iinclude","src/*.c","src/examples/*.c","-o","bin/learnc.exe","-lws2_32"],
+            "group": "build",
+            "problemMatcher": ["$gcc"],
+            "detail": "Build project with LLVM Clang"
+        }
+    ]
+}

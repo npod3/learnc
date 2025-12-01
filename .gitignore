@@ -1,0 +1,53 @@
+# LearnC project .gitignore
+
+# Build outputs
+/bin/
+/build/
+/out/
+
+# Compiled objects and libraries
+*.o
+*.obj
+*.lo
+*.la
+*.a
+*.lib
+*.dll
+*.so
+*.dylib
+*.exp
+*.ilk
+*.pdb
+*.idb
+
+# Executables
+*.exe
+*.out
+
+# Debug/crash artifacts
+*.stackdump
+*.dmp
+
+# Coverage
+*.gcda
+*.gcno
+*.gcov
+
+# Temporary/editor files
+*.tmp
+*.log
+*.cache
+*.bak
+*~
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# VS Code: ignore user-local, keep shared configs
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/c_cpp_properties.json
+!.vscode/settings.json
