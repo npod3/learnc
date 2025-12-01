@@ -1,0 +1,1 @@
+// Purpose: Resource dependency graph with topological cleanup (stub).\n// Example Invocation: ID 115\n\n#include <stdio.h>\n\nint example_resource_graph(void){\n    printf("[Resource Graph] Stub – see docs for topological ordering.\n");\n    return 0;\n}\n

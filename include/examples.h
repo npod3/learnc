@@ -26,4 +26,23 @@ int example_ansi_colors(void);
 int example_build_config(void);
 int example_serialization(void);
 
+// Advanced topics
+int example_memory_advanced(void);
+int example_atomics_concurrency(void);
+int example_threading_queue(void);
+int example_profiling_timing(void);
+int example_simd_basics(void);
+int example_parsing_fsm(void);
+int example_modular_plugins(void);
+int example_serialization_binary(void);
+int example_security_basics(void);
+int example_networking_select(void);
+int example_error_strategy(void);
+int example_build_system_notes(void); // doc-only stub
+int example_ffi_rust_bridge(void);
+int example_testing_harness(void);
+int example_resource_graph(void);
+int example_logging_system(void);
+int example_blackjack_twist(void);
+
 #endif // LEARNC_EXAMPLES_H

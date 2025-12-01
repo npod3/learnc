@@ -138,11 +138,28 @@ Uses C11 `<threads.h>` if available; if not, file documents fallback instruction
 Tip on MinGW-w64: if `threads.h` is unavailable, the example will report this at runtime; this is expected.
 
 ## License
-Educational sample – adapt freely.
+This project is NOT open source. All code, documentation, and assets are Copyright (c) 2025. All rights reserved.
+
+Permitted (non-transferable):
+- Personal/local study and experimentation.
+- Internal modification for private learning (keep changes private).
+
+Prohibited without prior written permission:
+- Redistribution of source or binaries (public repos, gists, packages).
+- Commercial use (paid courses, training material, tutorials, books).
+- Incorporation into academic curricula or published courseware.
+- Creating derivative works for public distribution.
+
+If you wish to negotiate broader rights, contact the author directly.
+
+See `LICENSE.md` for full terms.
 
 ## Next Steps
 - Implement tests in `/tests` (assert-based) if desired.
 - Extend serialization (JSON or binary format) without external libs.
+
+### Advanced Extensions
+Additional systems-level examples (IDs 101+): memory advanced (arena & pool allocators), atomics & concurrency, threading queue, profiling & timing, SIMD basics (optional), parsing FSM, modular plugins (dynamic loading concept), binary serialization with endianness, security basics, networking with select(), error strategy (unified error enum), build system notes (Make vs CMake vs Meson), FFI Rust bridge stub, testing harness macro, resource graph cleanup ordering, logging system with atomic level, and an extended Blackjack game with advisor thread & pluggable RNG.
 
 See `docs/architecture.md` for the menu wiring and platform helpers, and `docs/how-to-run-vscode.md` for integrated build/debug.
 
